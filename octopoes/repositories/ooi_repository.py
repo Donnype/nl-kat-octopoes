@@ -229,9 +229,7 @@ class XTDBOOIRepository(OOIRepository):
         search_types: Optional[Set[Type[OOI]]] = None,
         depth: Optional[int] = 1,
     ) -> ReferenceTree:
-
-        if search_types is None:
-            search_types = {OOI}
+        search_types = {OOI}
         search_types = to_concrete(search_types)
 
         results = self._get_tree_level({reference}, depth=depth, valid_time=valid_time)
