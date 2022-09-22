@@ -81,14 +81,14 @@ class OctopoesAPIConnector:
 
         for x in OBSERVATIONS:
             for y in x.result:
-                if y.reference in refs:
+                if y.reference in refs or (types and type(y) not in types):
                     continue
 
                 refs.append(y.reference)
                 oois.append(y)
 
         for x in DECLARATIONS.values():
-            if x.ooi.reference in refs:
+            if x.ooi.reference in refs or (types and type(x.ooi) not in types):
                 continue
 
             refs.append(x.ooi.reference)
